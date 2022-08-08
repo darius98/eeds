@@ -1,0 +1,12 @@
+.idea/
+.build/
+crash-*
+.DS_Store
+*.log
+*.profraw
+*.profdata
+core.*
+*.a
+*.o
+*.so
+*.dylib
