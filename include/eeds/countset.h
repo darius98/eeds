@@ -729,7 +729,7 @@ struct countset {
     return root == nullptr ? 0 : root->count;
   }
 
-  [[nodiscard]] std::size_t max_size() const noexcept {
+  [[nodiscard]] static constexpr std::size_t max_size() noexcept {
     return std::numeric_limits<std::size_t>::max();
   }
 

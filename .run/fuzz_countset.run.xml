@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="fuzz_countset" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-max_len=2048 -max_total_time=60 -timeout=2 ./fuzz_corpus/countset" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="eeds" TARGET_NAME="fuzz_countset" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="eeds" RUN_TARGET_NAME="fuzz_countset">
+    <envs>
+      <env name="LLVM_PROFILE_FILE" value=".build/fuzz.profraw" />
+    </envs>
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>

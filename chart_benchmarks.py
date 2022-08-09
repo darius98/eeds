@@ -89,7 +89,7 @@ def parse_data(data: Dict[str, ChartData], filepath: str, add: bool):
     with open(filepath, "r") as f:
         file_data = json.load(f)
         check_context(file_data["context"])
-        for entry in file_data["benchmarks"]:
+        for entry in file_data["benchmark"]:
             add_data(data, filename, entry, add)
 
 

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="countset_benchmarks" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--benchmark_out_format=json --benchmark_out=bm_countset.json --benchmark_filter=&quot;.*countset.*&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="eeds" TARGET_NAME="benchmarks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="eeds" RUN_TARGET_NAME="benchmarks">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>

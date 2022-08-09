@@ -78,14 +78,14 @@ function(add_fuzz_test NAME)
 endfunction()
 
 if (EEDS_TESTS)
-    file(GLOB UNITTESTS ${CMAKE_CURRENT_SOURCE_DIR}/tests/*_test.cpp)
+    file(GLOB UNITTESTS ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_*.cpp)
     add_executable(unittests ${UNITTESTS})
     target_link_libraries(unittests PUBLIC eeds gtest gtest_main gmock)
     target_compile_definitions(unittests PUBLIC EEDS_UNITTESTS)
 
-    file(GLOB BENCHMARKS ${CMAKE_CURRENT_SOURCE_DIR}/tests/*_bm.cpp)
+    file(GLOB BENCHMARKS ${CMAKE_CURRENT_SOURCE_DIR}/benchmark/bm_*.cpp)
     add_executable(benchmarks ${BENCHMARKS})
     target_link_libraries(benchmarks PUBLIC eeds benchmark benchmark_main)
 
-    add_fuzz_test(fuzz_countset ${CMAKE_CURRENT_SOURCE_DIR}/tests/countset_fuzz.cpp)
+    add_fuzz_test(fuzz_countset fuzz/fuzz_countset.cpp)
 endif ()
