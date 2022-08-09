@@ -76,7 +76,7 @@ class ChartData:
 
 
 def add_data(data: Dict[str, ChartData], benchmark_name: str, benchmark_entry: Dict[str, Any], add: bool):
-    category, sub_category, typename, size = benchmark_entry["name"].split("/")
+    category, sub_category, typename, size = benchmark_entry["name"].split("/")[:4]
     real_time = benchmark_entry["real_time"]
     key = category + "/" + sub_category
     if add:
@@ -89,7 +89,7 @@ def parse_data(data: Dict[str, ChartData], filepath: str, add: bool):
     with open(filepath, "r") as f:
         file_data = json.load(f)
         check_context(file_data["context"])
-        for entry in file_data["benchmark"]:
+        for entry in file_data["benchmarks"]:
             add_data(data, filename, entry, add)
 
 

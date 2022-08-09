@@ -9,7 +9,7 @@ struct traced_comparator_storage {
   std::size_t num_compares = 0;
 };
 
-static traced_comparator_storage* default_cmp_storage() noexcept;
+traced_comparator_storage* default_cmp_storage() noexcept;
 
 template<class T>
 struct traced_comparator {
@@ -33,7 +33,7 @@ struct traced_allocator_storage {
   std::set<std::pair<std::byte*, std::size_t>> deallocs;
 };
 
-static traced_allocator_storage* default_allocator_storage() noexcept;
+traced_allocator_storage* default_allocator_storage() noexcept;
 
 template<class T>
 struct traced_allocator {
@@ -88,7 +88,7 @@ struct traced_rng_storage {
   eeds::default_rng r;
 };
 
-static traced_rng_storage* default_rng_storage() noexcept;
+traced_rng_storage* default_rng_storage() noexcept;
 
 struct traced_rng {
   traced_rng_storage* i = default_rng_storage();
@@ -191,12 +191,12 @@ struct countset_traits : ::testing::Test {
   }
 };
 
-traced_comparator_storage* default_cmp_storage() noexcept {
+inline traced_comparator_storage* default_cmp_storage() noexcept {
   return countset_traits::default_cmp;
 }
-traced_allocator_storage* default_allocator_storage() noexcept {
+inline traced_allocator_storage* default_allocator_storage() noexcept {
   return countset_traits::default_alloc;
 }
-traced_rng_storage* default_rng_storage() noexcept {
+inline traced_rng_storage* default_rng_storage() noexcept {
   return countset_traits::default_rng_storage;
 }
