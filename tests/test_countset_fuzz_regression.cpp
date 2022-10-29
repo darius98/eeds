@@ -16,8 +16,7 @@ TEST(countset_regression, fuzz_regression_corpus) {
       : std::filesystem::current_path();
   const auto fuzz_corpus = project_root / "fuzz_corpus" / "countset";
   if (!std::filesystem::is_directory(fuzz_corpus)) {
-    // Corpus not found.
-    FAIL();
+    FAIL() << "Fuzz corpus not found.";
   }
   std::vector<std::byte> file_contents;
   for (const auto& path: std::filesystem::directory_iterator(fuzz_corpus)) {
@@ -28,8 +27,12 @@ TEST(countset_regression, fuzz_regression_corpus) {
     file_contents.resize(static_cast<std::size_t>(size));
     f.seekg(0, std::ios::beg);
     f.read(reinterpret_cast<char*>(file_contents.data()), size);
-    std::cerr << "  File " << path.path().stem().string() << " size=" << size
-              << "B\n";
-    tester(file_contents.data(), file_contents.size());
+    try {
+      tester(file_contents.data(), file_contents.size());
+    } catch (const std::exception& exc) {
+      FAIL() << "Failed scenario " << path.path().stem().string() << " of size "
+             << size << "B (path: " << std::filesystem::absolute(path)
+             << "): " << exc.what();
+    }
   }
 }
